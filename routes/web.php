@@ -19,8 +19,22 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [UserController::class, 'index']) ->Name('taken.index');
 
-Route::get('/create', [UserController::class, 'create']) ->Name('taken.create');
+Route::get('/', [UserController::class, 'index'])->Name('taken.index');
 
-Route::post('/store', [UserController::class, 'store']) ->Name('taken.store');
+Route::get('/update/{id}', [UserController::class, 'edit'])->name('taken.edit');
+
+Route::put('/update/{id}', [UserController::class, 'update'])->name('taken.update'); 
+
+Route::get('/create', [UserController::class, 'create'])->Name('taken.create');
+
+Route::post('/store', [UserController::class, 'store'])->Name('taken.store');
+
+Route::delete('/{taak}', [UserController::class, 'destroy'])->Name('taken.destroy');
+
+
+
+
+
+
 
 

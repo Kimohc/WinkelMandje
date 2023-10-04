@@ -33,14 +33,12 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        if (request()->isMethod('post')) {
-
         $taak = new Taken();
         $taak->taak = $request->input('userInput');
         $taak->save();
 
         return redirect('/');
-        }
+        
     }
 
     /**
@@ -56,22 +54,39 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        
+        $taak = Taken::find($id);
+      
+        return view('update', compact('taak'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request,string $id)
     {
-        
+        $request->validate([
+            'userInputEdit' => 'required', // Define your validation rules here
+        ]);
+    
+        $taak = Taken::find($id);
+        if (!$taak) {
+            return redirect()->route('taken.index')->with('error', 'Task not found.');
+        }
+    
+        // Update the task with the new input
+        $taak->taak = $request->input('userInputEdit');
+        $taak->save();
+    
+        return redirect()->route('taken.index')->with('success', 'Task updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Taken $taak)
     {
-        
+        $taak->delete();
+
+        return redirect('/');
     }
 }

@@ -39,6 +39,7 @@ body{
     margin-top: 10px;
     padding: 10px;
     font-size: 22px;
+    z-index: 0;
 }
 .taak-finished
 {
@@ -48,5 +49,50 @@ body{
 .taakitto:active
 {
     transform: scale(1.13);
+    transition: 50ms;
+}
+.btn{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+.btn:hover
+{
+    transform: scale(1.55);
+}
+.btn:active
+{
+    transform: scale(2);
+    transition: 50ms;
+}
+.btnitto
+{
+    font-size: 22px;
+}
+.container2
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.container2 button
+{
+   margin-right: 55px;
+}
+.container2 i 
+{
+    font-size: 20px;
+}
+.container2 a 
+{
+    color: black;
+}
+.container2 a:hover
+{
+    transform: scale(1.55);
+}
+.container2 a:active
+{
+    transform: scale(2);
     transition: 50ms;
 }
