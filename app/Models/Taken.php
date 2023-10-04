@@ -9,8 +9,9 @@ class Taken extends Model
 {
     use HasFactory;
 
-    const CREATED_AT = 'creation_date';
-    const UPDATED_AT = 'updated_date';
+    const CREATED_AT = 'created_at';
+    const UPDATED_AT = 'updated_at';
     protected $table = 'taken';
     protected $primaryKey = 'id';
+    public $timestamps = true;
 }
