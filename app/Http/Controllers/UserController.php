@@ -12,8 +12,10 @@ class UserController extends Controller
      */
     public function index()
     {
+        
         $taken = Taken::all();
         return view('index' , compact('taken'));
+        
     }
 
     /**
@@ -22,6 +24,8 @@ class UserController extends Controller
     public function create()
     {
         
+        return view('/');
+        
     }
 
     /**
@@ -29,7 +33,14 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        
+        if (request()->isMethod('post')) {
+
+        $taak = new Taken();
+        $taak->taak = $request->input('userInput');
+        $taak->save();
+
+        return redirect('/');
+        }
     }
 
     /**

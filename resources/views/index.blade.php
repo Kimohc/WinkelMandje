@@ -8,13 +8,17 @@
 <body>
     <div class="header">
     <h1>Grocery List</h1>
+    <form action="{{route('taken.store')}}" method="POST">
+        @csrf
     <input type="text" name='userInput'>
     <input type="submit" id='submit' class='btn'>
+    </form>
     </div>
     <div class="container">
         @foreach($taken as $taak)
-        {{ $taak->taak }}
+       <div class="taakitto" id="taakitto">{{$taak->taak}}</div>
         @endforeach
     </div>
+    <script src="../js/app.js"></script>
 </body>
 </html>
