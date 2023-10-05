@@ -25,7 +25,7 @@ body{
     justify-content: center;
     flex-direction: column;
 }
-.header input[type="text"]
+form input[type="text"]
 {
     font-size: 22px;
     margin: 10px auto;
@@ -40,6 +40,7 @@ body{
     padding: 10px;
     font-size: 22px;
     z-index: 0;
+    cursor: pointer;
 }
 .taak-finished
 {
@@ -68,6 +69,14 @@ body{
 .btnitto
 {
     font-size: 22px;
+    background-color: #F6F6F6;
+    
+}
+.btnitto:hover
+{
+    background-color: #FFE2E2;
+    cursor: pointer;
+  
 }
 .container2
 {
@@ -95,4 +104,13 @@ body{
 {
     transform: scale(2);
     transition: 50ms;
+}
+.container3
+{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }

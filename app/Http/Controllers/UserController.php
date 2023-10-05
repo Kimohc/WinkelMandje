@@ -33,6 +33,9 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'userInput' => 'required|max:100',
+        ]);
         $taak = new Taken();
         $taak->taak = $request->input('userInput');
         $taak->save();
@@ -65,19 +68,15 @@ class UserController extends Controller
     public function update(Request $request,string $id)
     {
         $request->validate([
-            'userInputEdit' => 'required', // Define your validation rules here
+            'userInputEdit' => 'required|max:100',
         ]);
     
         $taak = Taken::find($id);
-        if (!$taak) {
-            return redirect()->route('taken.index')->with('error', 'Task not found.');
-        }
-    
-        // Update the task with the new input
+
         $taak->taak = $request->input('userInputEdit');
         $taak->save();
     
-        return redirect()->route('taken.index')->with('success', 'Task updated successfully.');
+        return redirect()->route('taken.index');
     }
 
     /**
