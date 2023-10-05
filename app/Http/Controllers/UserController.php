@@ -12,7 +12,6 @@ class UserController extends Controller
      */
     public function index()
     {
-        
         $taken = Taken::all();
         return view('index' , compact('taken'));
     }
@@ -22,7 +21,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('/');
+        return view('/create');
     }
 
     /**
@@ -33,10 +32,11 @@ class UserController extends Controller
         $request->validate([
             'userInput' => 'required|max:100',
         ]);
-        $taak = new Taken();
-        $taak->taak = $request->input('userInput');
-        $taak->save();
-
+        $selectedValue = $request->input('Winkel');
+        Taken::create([
+            'taak' => $request->input('userInput'),
+            'winkel' => $selectedValue
+        ]);
         return redirect('/');
     }
 
@@ -45,7 +45,8 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        
+        return view('show', ['taak' => Taken::find($id)]);
+
     }
 
     /**
@@ -67,11 +68,10 @@ class UserController extends Controller
             'userInputEdit' => 'required|max:100',
         ]);
     
-        $taak = Taken::find($id);
-
-        $taak->taak = $request->input('userInputEdit');
-        $taak->save();
-    
+         $taak = Taken::find($id);
+        $taak->update([
+            'taak' => $request->input('userInputEdit'),
+        ]);
         return redirect()->route('taken.index');
     }
 

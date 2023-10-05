@@ -14,4 +14,7 @@ class Taken extends Model
     protected $table = 'taken';
     protected $primaryKey = 'id';
     public $timestamps = true;
+    protected $fillable = ['taak', 'winkel'];
+
+
 }

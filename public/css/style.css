@@ -44,6 +44,8 @@ form input[type="text"]
     animation-duration: 0.5s;
     animation-name: animate-pop;
     animation-timing-function: cubic-bezier(.26, .53, .74, 1.48);
+    display: flex;
+    justify-content: space-between;
 }
 .taak-finished
 {
@@ -87,10 +89,7 @@ form input[type="text"]
     flex-direction: row;
     justify-content: space-between;
 }
-.container2 button
-{
-   margin-right: 55px;
-}
+
 .container2 i 
 {
     font-size: 20px;
@@ -128,4 +127,22 @@ form input[type="text"]
       opacity: 1;
       transform: scale(1, 1);
     }
+  }
+
+  .container3 a
+  {
+    padding: 15px 25px;
+    background-color: #F6F6F6;
+    text-decoration: none;
+    color: black;
+  }
+  .header a 
+  {
+    padding: 15px 25px;
+    background-color: #F6F6F6;
+    text-decoration: none;
+    color: black;
+  }
+  .container3 label{
+    font-size: 22px
   }

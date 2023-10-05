@@ -6,18 +6,12 @@
     <title>Document</title>
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://kit.fontawesome.com/a4d79bb58d.js" crossorigin="anonymous"></script>
-
 </head>
 <body>
     <div class="container3">
-<form action="{{ route('taken.update', $taak->id) }}" method="POST">
-    @csrf
-    @method('PUT')
-    <label for="taaknaam">Item</label>
-    <br>
-    <input type="text" name="userInputEdit" value="{{ $taak->taak }}" id="taaknaam" >
-    <button type="submit" class="btnitto">Update</button>
-</form>
-</div>
+    <h1>{{ $taak->taak }}</h1>
+    <a href="/">Go Home <i class="fa-solid fa-house"></i></a>
+    </div>
 </body>
 </html>
+
