@@ -13,9 +13,15 @@
 <form action="{{ route('taken.update', $taak->id) }}" method="POST">
     @csrf
     @method('PUT')
-    <label for="taaknaam">Item</label>
+    <label for="taaknaam">Weet je zeker dat je niet dit hoeft te halen?</label>
     <br>
     <input type="text" name="userInputEdit" value="{{ $taak->taak }}" id="taaknaam" >
+    <select name="userInputEditWinkel" id="winkelNaam" value="{{$taak->winkel}}">
+        <option value="Jumbo">Jumbo</option>
+        <option value="AlbertHeijn">Albert Heijn</option>
+        <option value="Aldi">Aldi</option>
+        <option value="Lidl">Lidl</option>
+    </select>
     <button type="submit" class="btnitto">Update</button>
 </form>
 </div>

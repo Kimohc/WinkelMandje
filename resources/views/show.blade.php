@@ -9,7 +9,8 @@
 </head>
 <body>
     <div class="container3">
-    <h1>{{ $taak->taak }}</h1>
+    <h1>Wat je moet halen: {{ $taak->taak }}</h1>
+        <h2>Winkel: {{ $taak->winkel }}</h2>
     <a href="/">Go Home <i class="fa-solid fa-house"></i></a>
     </div>
 </body>

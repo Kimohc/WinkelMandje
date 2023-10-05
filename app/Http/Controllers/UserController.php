@@ -55,7 +55,7 @@ class UserController extends Controller
     public function edit(string $id)
     {
         $taak = Taken::find($id);
-      
+
         return view('update', compact('taak'));
     }
 
@@ -67,10 +67,11 @@ class UserController extends Controller
         $request->validate([
             'userInputEdit' => 'required|max:100',
         ]);
-    
+
          $taak = Taken::find($id);
         $taak->update([
             'taak' => $request->input('userInputEdit'),
+            'winkel' => $request->input('userInputEditWinkel')
         ]);
         return redirect()->route('taken.index');
     }

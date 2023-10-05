@@ -11,7 +11,6 @@
     <div class="container3">
 <form action="{{route('taken.store')}}" method="POST">
         @csrf
-        
         <br>
         <label for="Name">Wat moet je nog halen? <i class="fa-solid fa-cart-shopping"></i></label>
         <br>
