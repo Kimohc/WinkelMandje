@@ -15,7 +15,6 @@ class UserController extends Controller
         
         $taken = Taken::all();
         return view('index' , compact('taken'));
-        
     }
 
     /**
@@ -23,9 +22,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        
         return view('/');
-        
     }
 
     /**
@@ -41,7 +38,6 @@ class UserController extends Controller
         $taak->save();
 
         return redirect('/');
-        
     }
 
     /**
