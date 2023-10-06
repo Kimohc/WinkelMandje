@@ -27,12 +27,13 @@ Route::get('/taken/{index}', [UserController::class, 'show']) ->Name('taken.show
 
 Route::get('/update/{id}', [UserController::class, 'edit'])->name('taken.edit');
 
-Route::put('/update/{id}', [UserController::class, 'update'])->name('taken.update'); 
+Route::put('/update/{id}', [UserController::class, 'update'])->name('taken.update');
 
 Route::post('/store', [UserController::class, 'store'])->Name('taken.store');
 
 Route::delete('/taken/{taak}', [UserController::class, 'destroy'])->Name('taken.destroy');
 
+Route::post('/taken/destroyAll', [UserController::class, 'destroyAll'])->Name('taken.destroyAll');
 
 
 

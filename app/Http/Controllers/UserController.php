@@ -64,15 +64,13 @@ class UserController extends Controller
      */
     public function update(Request $request,string $id)
     {
-        $request->validate([
-            'userInputEdit' => 'required|max:100',
+        $data = $request->validate([
+            'taak' => 'required|max:100',
+            'winkel' => 'required'
         ]);
 
-         $taak = Taken::find($id);
-        $taak->update([
-            'taak' => $request->input('userInputEdit'),
-            'winkel' => $request->input('userInputEditWinkel')
-        ]);
+         $taak = Taken::findOrFail($id);
+        $taak->update($data);
         return redirect()->route('taken.index');
     }
 
@@ -83,6 +81,11 @@ class UserController extends Controller
     {
         $taak->delete();
 
+        return redirect('/');
+    }
+    public function destroyAll(Taken $taak)
+    {
+        Taken::truncate();
         return redirect('/');
     }
 }

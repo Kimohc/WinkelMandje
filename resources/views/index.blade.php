@@ -10,6 +10,10 @@
     <div class="header">
     <h1>Grocery List</h1>
     <a href="/taken/create" >Create a new task <i class="fa-solid fa-plus"></i></a>
+        <form action="{{route('taken.destroyAll')}}" method="POST">
+            @csrf
+            <button type="submit" onclick="return confirm('Weet je zeker dat je alles wilt verwijderen?')" class="btn1">Clear list</button>
+        </form>
     </div>
     <div class="container">
         @foreach($taken as $taak)

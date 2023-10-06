@@ -161,3 +161,12 @@ form input[type="text"]
       width: 60%;
       font-size: 22px;
   }
+  .btn1{
+      background: #e2e8f0;
+      cursor: pointer;
+  }
+  .btn1:hover
+  {
+      transform: scale(1.10);
+
+  }
